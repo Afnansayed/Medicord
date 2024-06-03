@@ -1,18 +1,38 @@
 import { NavLink } from "react-router-dom";
 import logo from '../../../src/assets/cover.png'
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const NavBar = () => {
+    const { user ,logOut} = useContext(AuthContext);
     const navLink = <>
         <NavLink className={({ isActive }) => isActive ? 'font-bold text-[#396cf0] mr-3 ' : 'text-[#333333] mr-2 font-semibold'} to='/'><li>Home</li></NavLink>
         {/* 2 */}
         <NavLink className={({ isActive }) => isActive ? 'font-bold text-[#396cf0] mr-3 ' : 'text-[#333333]  mr-2 font-semibold'} to='/avail'><li>Available Camp</li></NavLink>
-    
+
     </>
     const navForAuthentication = <>
         <NavLink className={({ isActive }) => isActive ? 'font-bold text-[#396cf0] mr-3 ' : 'text-[#333333] font-semibold mr-2'} to='/login'><li>Log In</li></NavLink>
         {/* 2 */}
         <NavLink className={({ isActive }) => isActive ? 'font-bold text-[#396cf0] mr-3 ' : 'text-[#333333] font-semibold  mr-2'} to='/signUp'><li>Sign Up</li></NavLink>
-    
+
+    </>
+    const handleLogOut = () => {
+        logOut()
+        .then(() => {
+            console.log('signOut successful')
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    }
+    const navForDashboard = <>
+        
+        {/* 1 */}
+        <NavLink className={({ isActive }) => isActive ? 'font-bold text-[#396cf0] mr-3 ' : 'text-[#333333] font-semibold  mr-2'} to='/signUp'><li>DashBoard</li></NavLink>
+         {/* 2 */}
+        <li onClick={handleLogOut} className="btn px-5 py-2 w-full bg-[#181dc6]  text-[#ffff]">Log Out</li>
+
     </>
     return (
         <div className="navbar bg-base-100">
@@ -39,14 +59,28 @@ const NavBar = () => {
             </div>
             {/* dropDown for join us */}
             <div className="navbar-end">
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className=" m-1 px-8 py-2 bg-[#181dc6] text-[#ffffff]">Join Us</div>
-                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 space-y-2">
-                        {
-                            navForAuthentication
-                        }
-                    </ul>
-                </div>
+                {
+                    !user && <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className=" m-1 px-8 py-2 bg-[#181dc6] text-[#ffffff]">Join Us</div>
+                        <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 space-y-2">
+                            {
+                                navForAuthentication
+                            }
+                        </ul>
+                    </div>
+                }
+                {
+                    user && <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className="avatar"><div className="w-12 rounded-full">
+                            <img src={user?.photoURL} />
+                        </div></div>
+                        <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 space-y-5 flex justify-center items-center ">
+                            {
+                                navForDashboard
+                            }
+                        </ul>
+                    </div>
+                }
             </div>
         </div>
     );
