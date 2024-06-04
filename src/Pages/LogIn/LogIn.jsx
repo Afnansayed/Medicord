@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form"
 import { AuthContext } from "../../Providers/AuthProvider";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure/UseAxiosSecure";
+import Swal from "sweetalert2";
 
 const LogIn = () => {
     const {logIn,google } = useContext(AuthContext);
+    const axiosSecure = UseAxiosSecure();
     const {
         register,
         handleSubmit,
@@ -24,6 +27,23 @@ const LogIn = () => {
         google()
         .then(res => {
             console.log(res.user);
+            const userInfo ={
+                name:res?.user?.displayName,
+                email:res?.user?.email,
+                image: res?.user?.photoURL,
+            }
+            axiosSecure.post('/users',userInfo)
+            .then(res => {
+                if(res.data.insertedId){
+                    Swal.fire({
+                      position: "top-end",
+                      icon: "success",
+                      title: "User updated successfully",
+                      showConfirmButton: false,
+                      timer: 1500
+                    }); 
+                }
+            })
         })
         .catch(error => {
             console.error(error);

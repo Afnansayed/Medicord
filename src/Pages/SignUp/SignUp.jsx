@@ -2,12 +2,15 @@ import axios from "axios";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure/UseAxiosSecure";
+import Swal from "sweetalert2";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const SignUp = () => {
-    const {createUser,updateUser} = useContext(AuthContext)
+    const {createUser,updateUser} = useContext(AuthContext);
+    const axiosSecure = UseAxiosSecure();
    // console.log(createUser)
     const {
         register,
@@ -18,14 +21,15 @@ const SignUp = () => {
 
     const onSubmit = (data) => {
        
-        console.log(data)
+       // console.log(data)
+       //*** hear I  work in for found image   */
         //console.log(data.image)
         const image = data.image[0]
        // console.log(image)
         const formData = new FormData()
         formData.append('image', image)
        // console.log(formData)
-
+       //** after found the image i simply host in imageBB **/
         axios.post(image_hosting_api, formData)
         .then(res => {
             if (res.data.success) {
@@ -36,9 +40,29 @@ const SignUp = () => {
                 createUser(data?.email,data.password)
                 .then(res => {
                     console.log(res.user);
+                    // here I update user name and image as displayName,and photoURL.
                     updateUser(data?.name,image)
                     .then( () => {
-                        console.log('userupdataed successfully');
+                        //console.log('user updated successfully');
+                        const userInfo ={
+                            name:data?.name,
+                            email:data?.email,
+                            image: image,
+                        }
+                        console.log(userInfo)
+                        //send the user info in the database
+                        axiosSecure.post('/users',userInfo)
+                        .then(res => {
+                            if(res.data.insertedId){
+                                Swal.fire({
+                                  position: "top-end",
+                                  icon: "success",
+                                  title: "User updated successfully",
+                                  showConfirmButton: false,
+                                  timer: 1500
+                                }); 
+                            }
+                        })
                     })
                 })
                 .catch(error => {
