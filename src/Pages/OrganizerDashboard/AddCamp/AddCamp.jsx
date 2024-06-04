@@ -1,5 +1,8 @@
+import axios from "axios";
 import { useForm } from "react-hook-form"
 
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const AddCamp = () => {
     const {
         register,
@@ -10,7 +13,28 @@ const AddCamp = () => {
     
       const onSubmit = (data) => {
         console.log(data)
-        console.log(data.image)
+        //how to host image in image bb
+        const image = data.image[0];
+        const formData = new FormData();
+        formData.append('image',image)
+        
+
+        axios.post(image_hosting_api,formData)
+        .then(res => {
+            if(res.data.success){
+                const campInfo = {
+                    campName: data?.campName,
+                    campFees: data?.campFees,
+                    date: data?.date,
+                    description: data?.description,
+                    healthcareProfessional: data?.healthcareProfessional,
+                    location: data?.location,
+                    participantCount:data?.participantCount,
+                    image: res?.data?.data?.display_url
+                }
+                console.log(campInfo)
+            }
+        })
     }
     return (
         <div className="w-[80%]">
