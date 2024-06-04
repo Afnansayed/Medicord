@@ -3,6 +3,8 @@ import Main from "../../Layouts/Main/Main";
 import Home from "../../Pages/Home/Home/Home";
 import SignUp from "../../Pages/SignUp/SignUp";
 import LogIn from "../../Pages/LogIn/LogIn";
+import Dashboard from "../../Layouts/Dashboard/Dashboard";
+import OrganizerHome from "../../Pages/OrganizerDashboard/OrganizerHome/OrganizerHome";
 
 
 export const router = createBrowserRouter([
@@ -19,6 +21,15 @@ export const router = createBrowserRouter([
             },{
                 path: '/logIn',
                 element: <LogIn/>
+            }
+        ]
+    },{
+        path: '/dashboard',
+        element: <Dashboard/>,
+        children:[
+            {
+                path:'organizerHome',
+                element:<OrganizerHome/>
             }
         ]
     }

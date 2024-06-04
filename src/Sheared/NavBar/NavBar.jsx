@@ -27,9 +27,8 @@ const NavBar = () => {
         })
     }
     const navForDashboard = <>
-        
         {/* 1 */}
-        <NavLink className={({ isActive }) => isActive ? 'font-bold text-[#396cf0] mr-3 ' : 'text-[#333333] font-semibold  mr-2'} to='/signUp'><li>DashBoard</li></NavLink>
+        <NavLink className={({ isActive }) => isActive ? 'font-bold text-[#396cf0] mr-3 ' : 'text-[#333333] font-semibold  mr-2'} to='/dashboard'><li>DashBoard</li></NavLink>
          {/* 2 */}
         <li onClick={handleLogOut} className="btn px-5 py-2 w-full bg-[#181dc6]  text-[#ffff]">Log Out</li>
 

@@ -22,7 +22,7 @@ const Banner = () => {
             {
                 success.map(story => <div key={story._id} className="md:min-h-screen">
                     <img className="relative rounded-xl" src={story.imageUrl} />
-                    <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#e5eef7] to-[rgba(21,21,21,0)] w-full h-full flex items-center  justify-start it rounded-xl md:gap-5">
+                    <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#e5eef7] to-[#e5eef72B] w-full h-full flex items-center  justify-start it rounded-xl md:gap-5">
                        <div className="sm:w-full lg:w-1/2 md:ml-24 md:space-y-5">
                        <h2 className="text-2xl md:text-5xl  text-[#2d2d2b] font-bold">{story.title}</h2>
                         <p className="text-[#2d2d2b] ">{story.description}</p>
