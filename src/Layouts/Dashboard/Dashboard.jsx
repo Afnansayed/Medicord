@@ -18,6 +18,8 @@ const Dashboard = () => {
                         {/* Sidebar content here */}
                         {/* Organizers  route */}
                         <NavLink to='/dashboard/organizerHome'><li className="text-[#ffff]">Organizer Home</li></NavLink>
+                        {/* 2 */}
+                        <NavLink to='/dashboard/addCamp'><li className="text-[#ffff]"> Add A Camp</li></NavLink>
                         {/* user Route */}
                         {/*  */}
                         <div className="divider divider-info"></div>

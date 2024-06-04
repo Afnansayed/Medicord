@@ -5,6 +5,7 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import LogIn from "../../Pages/LogIn/LogIn";
 import Dashboard from "../../Layouts/Dashboard/Dashboard";
 import OrganizerHome from "../../Pages/OrganizerDashboard/OrganizerHome/OrganizerHome";
+import AddCamp from "../../Pages/OrganizerDashboard/AddCamp/AddCamp";
 
 
 export const router = createBrowserRouter([
@@ -30,6 +31,9 @@ export const router = createBrowserRouter([
             {
                 path:'organizerHome',
                 element:<OrganizerHome/>
+            },{
+                path: 'addCamp',
+                element: <AddCamp/>
             }
         ]
     }
