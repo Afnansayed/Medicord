@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 const Camp = ({ camp }) => {
     const {
         campName, campFees,
         date,
-        description, healthcareProfessional,
-        location, participantCount, image } = camp;
+         healthcareProfessional,
+        location, participantCount, image,_id } = camp;
+
+        const handleViewDetails = id => {
+            console.log(id);
+        }
     return (
         <div>
             <div className="dark:bg-gray-100 dark:text-gray-900">
@@ -31,8 +36,9 @@ const Camp = ({ camp }) => {
                             <span className="text-xs">Post-Date : {date}</span>
                         </div>
                         <div className='flex mt-3 gap-6'>
-                            <p className='px-3 bg-[#181ED5] text-[#ffff] btn btn-sm'>View Details</p>
-                            <p className='px-3 bg-[#181ED5] text-[#ffff] btn btn-sm'>Join Camp</p>
+                            <Link to={`/detail/${_id}`}><p onClick={() => handleViewDetails(_id)} className='px-3 bg-[#181ED5] text-[#ffff] btn btn-sm'>View Details</p></Link>
+                            
+                            <p className='px-3 bg-[#181ED5] text-[#ffff] btn btn-sm'>Available Camp</p>
                         </div>
                     </div>
                 </div>

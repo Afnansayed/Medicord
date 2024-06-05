@@ -6,8 +6,10 @@ import LogIn from "../../Pages/LogIn/LogIn";
 import Dashboard from "../../Layouts/Dashboard/Dashboard";
 import OrganizerHome from "../../Pages/OrganizerDashboard/OrganizerHome/OrganizerHome";
 import AddCamp from "../../Pages/OrganizerDashboard/AddCamp/AddCamp";
+import Details from "../../components/Details/Details";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure/UseAxiosSecure";
 
-
+const axiosSecure = UseAxiosSecure();
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -22,6 +24,10 @@ export const router = createBrowserRouter([
             },{
                 path: '/logIn',
                 element: <LogIn/>
+            },{
+                path: '/detail/:id',
+                element: <Details/>,
+                loader: ({params}) => axiosSecure.get(`/allCamps/${params.id}`)
             }
         ]
     },{
