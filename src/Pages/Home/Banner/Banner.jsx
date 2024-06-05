@@ -12,7 +12,7 @@ const Banner = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/successStory')
             .then(res => {
-                console.log(res.data)
+               // console.log(res.data)
                 setSuccess(res.data);
             })
     }, [])
