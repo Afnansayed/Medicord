@@ -10,7 +10,7 @@ const PopularCamps = () => {
     const { data: popularCamps = [] } = useQuery({
         queryKey: ['popularCamps'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/allCamps')
+            const res = await axiosPublic.get(`/allCamps?popular=${true}&limit=${6}`)
             return res.data;
         }
     })

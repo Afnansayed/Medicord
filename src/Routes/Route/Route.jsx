@@ -8,6 +8,7 @@ import OrganizerHome from "../../Pages/OrganizerDashboard/OrganizerHome/Organize
 import AddCamp from "../../Pages/OrganizerDashboard/AddCamp/AddCamp";
 import Details from "../../components/Details/Details";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure/UseAxiosSecure";
+import AvailableCamps from "../../Pages/AvailableCamps/AvailableCamps";
 
 const axiosSecure = UseAxiosSecure();
 export const router = createBrowserRouter([
@@ -18,6 +19,9 @@ export const router = createBrowserRouter([
             {
                 path:'/',
                 element: <Home/>
+            },{
+                path: '/avail',
+                element: <AvailableCamps/>
             },{
                 path: '/signUp',
                 element: <SignUp/>
