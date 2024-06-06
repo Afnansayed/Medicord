@@ -27,12 +27,12 @@ const AddCamp = () => {
             if(res.data.success){
                 const campInfo = {
                     campName: data?.campName,
-                    campFees: data?.campFees,
+                    campFees: parseInt(data?.campFees),
                     date: data?.date,
                     description: data?.description,
                     healthcareProfessional: data?.healthcareProfessional,
                     location: data?.location,
-                    participantCount:data?.participantCount,
+                    participantCount:parseInt(data?.participantCount),
                     image: res?.data?.data?.display_url
                 }
                 //console.log(campInfo)
