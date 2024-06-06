@@ -3,6 +3,7 @@ import { BsChevronDoubleRight } from "react-icons/bs";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure/UseAxiosSecure";
+import Swal from "sweetalert2";
 const Details = () => {
     const axiosSecure = UseAxiosSecure();
     const camp = useLoaderData();
@@ -31,6 +32,15 @@ const Details = () => {
                     axiosSecure.patch(`/allCamps/${_id}`,newCount)
                     .then(res => {
                         console.log(res.data);
+                        if(res.data.modifiedCount > 0){
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: ` Joining ${participantData?.campName} request is accepted`,
+                                showConfirmButton: false,
+                                timer: 3000
+                              });
+                        }
                     })
                 }
             })
