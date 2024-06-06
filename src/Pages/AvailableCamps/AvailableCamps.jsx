@@ -22,7 +22,13 @@ const AvailableCamps = () => {
     useEffect(() => {
         refetch();
     }, [search, refetch,filter,order])
-    console.log(search);
+    const handleLayoutChange = (e) => {
+        e.preventDefault();
+        //setLayout(!layout); its also ok 
+       // best practice
+        setLayout(prevLayout => !prevLayout)
+    };
+ console.log(layout);
     return (
         <div className="">
             <div>
@@ -52,10 +58,11 @@ const AvailableCamps = () => {
                                         <option value="asc">Ascending</option>
                                         <option value="dsc">Descending</option>
                                     </select>
+                                    <button onClick={handleLayoutChange} className="hidden md:inline-block px-5 btn join-item select-bordered  bg-[#181ed8] text-[#fff]">Change Layout</button>
                                 </form>
                             </div>
                         </div>
-                        <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        <div  className={`grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 ${!layout? "lg:grid-cols-3": "lg:grid-cols-2" } `}>
                             {
                                 totalCamp.map(tent => <div key={tent?._id} className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50 hover:scale-110">
                                     <img role="presentation" className="object-cover w-full rounded h-44 dark:bg-gray-500" src={tent?.image} />
