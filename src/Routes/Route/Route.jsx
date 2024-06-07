@@ -9,6 +9,7 @@ import AddCamp from "../../Pages/OrganizerDashboard/AddCamp/AddCamp";
 import Details from "../../components/Details/Details";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import AvailableCamps from "../../Pages/AvailableCamps/AvailableCamps";
+import UpdateUserData from "../../Sheared/UpdateUserData/UpdateUserData";
 
 const axiosSecure = UseAxiosSecure();
 export const router = createBrowserRouter([
@@ -44,6 +45,9 @@ export const router = createBrowserRouter([
             },{
                 path: 'addCamp',
                 element: <AddCamp/>
+            },{
+                path:'updateProfile',
+                element: <UpdateUserData></UpdateUserData>,
             }
         ]
     }

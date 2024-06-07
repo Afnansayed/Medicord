@@ -26,7 +26,7 @@ const AvailableCamps = () => {
         e.preventDefault();
         //setLayout(!layout); its also ok 
        // best practice
-        setLayout(prevLayout => !prevLayout)
+        setLayout(prevLayout => !prevLayout);
     };
  console.log(layout);
     return (
