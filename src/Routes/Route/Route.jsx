@@ -12,6 +12,7 @@ import AvailableCamps from "../../Pages/AvailableCamps/AvailableCamps";
 import UpdateUserData from "../../Sheared/UpdateUserData/UpdateUserData";
 import ParticipantProfile from "../../Pages/ParticipantDashboard/ParticipantProfile/ParticipantProfile";
 import ManageCamp from "../../Pages/OrganizerDashboard/ManageCamp/ManageCamp";
+import UpdateCampsData from "../../Pages/OrganizerDashboard/UpdateCampsData/UpdateCampsData";
 
 const axiosSecure = UseAxiosSecure();
 export const router = createBrowserRouter([
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
             },{
                 path: 'manageCamps',
                 element:<ManageCamp></ManageCamp>
+            },{
+                path: 'manageCamps/update/:id',
+                element: <UpdateCampsData></UpdateCampsData>,
+                loader:  ({params}) => axiosSecure.get(`/allCamps/${params.id}`)
             },{
                 path:'updateProfile',
                 element: <UpdateUserData></UpdateUserData>,
