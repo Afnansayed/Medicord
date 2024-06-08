@@ -10,6 +10,7 @@ import Details from "../../components/Details/Details";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import AvailableCamps from "../../Pages/AvailableCamps/AvailableCamps";
 import UpdateUserData from "../../Sheared/UpdateUserData/UpdateUserData";
+import ParticipantProfile from "../../Pages/ParticipantDashboard/ParticipantProfile/ParticipantProfile";
 
 const axiosSecure = UseAxiosSecure();
 export const router = createBrowserRouter([
@@ -40,7 +41,7 @@ export const router = createBrowserRouter([
         element: <Dashboard/>,
         children:[
             {
-                path:'organizerHome',
+                path:'organizerProfile',
                 element:<OrganizerHome/>
             },{
                 path: 'addCamp',
@@ -48,6 +49,9 @@ export const router = createBrowserRouter([
             },{
                 path:'updateProfile',
                 element: <UpdateUserData></UpdateUserData>,
+            },{
+                path:'participantProfile',
+                element: <ParticipantProfile></ParticipantProfile>
             }
         ]
     }

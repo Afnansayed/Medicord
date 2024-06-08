@@ -55,7 +55,7 @@ const AddCamp = () => {
         })
     }
     return (
-        <div className="w-[80%]">
+        <div className="w-[80%] mt-24 md:mt-6">
             <form onSubmit={handleSubmit(onSubmit)} noValidate="" className="space-y-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 <div className="md:col-span-3">
                     <label htmlFor="name" className="text-sm">Camp name</label>

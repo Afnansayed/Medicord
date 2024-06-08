@@ -1,25 +1,35 @@
 import { NavLink, Outlet } from "react-router-dom";
-
+import { HiOutlineMenuAlt1 } from "react-icons/hi";
 
 const Dashboard = () => {
+    const isAdmin = true;
     return (
         <div>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center justify-center">
+                <div className="drawer-content flex flex-col items-center justify-center relative">
                     {/* Page content here */}
                     <Outlet></Outlet>
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden absolute top-5 right-5 text-3xl font-bold text-[#ffffff]"><HiOutlineMenuAlt1 /></label>
 
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-64 min-h-full bg-[#181ca3] text-base-content  text-xl md:space-y-2 ">
                         {/* Sidebar content here */}
+                        {
+                            isAdmin ? <>
                         {/* Organizers  route */}
-                        <NavLink to='/dashboard/organizerHome'><li className="text-[#ffff]">Organizer Home</li></NavLink>
+                        {/* 01 */}
+                        <NavLink to='/dashboard/organizerProfile'><li className="text-[#ffff]">Organizer Profile</li></NavLink>
                         {/* 2 */}
                         <NavLink to='/dashboard/addCamp'><li className="text-[#ffff]"> Add A Camp</li></NavLink>
+                            </>: <>
+                        {/* Participant Route */}
+                        {/* 01 */}
+                        <NavLink to='/dashboard/participantProfile'><li className="text-[#ffff]">Participant Profile</li></NavLink>
+                            </>
+                        }
                         {/* user Route */}
                         {/*  */}
                         <div className="divider divider-info"></div>
