@@ -26,6 +26,7 @@ const Dashboard = () => {
                         <NavLink to='/dashboard/addCamp'><li className="text-[#ffff]"> Add A Camp</li></NavLink>
                         {/* 3 */}
                         <NavLink to='/dashboard/manageCamps'><li className="text-[#ffff]">Manage Camps</li></NavLink>
+                        <NavLink to='/dashboard/manageUsers'><li className="text-[#ffff]">Manage Users</li></NavLink>
                             </>: <>
                         {/* Participant Route */}
                         {/* 01 */}
@@ -38,7 +39,6 @@ const Dashboard = () => {
                         {/* Sheared routes */}
                             <NavLink to='/'><li className="text-[#ffff]">Home</li></NavLink>
                             <NavLink to='/avail'><li className="text-[#ffff]">Available Page</li></NavLink>
-                        
                     </ul>
 
                 </div>
