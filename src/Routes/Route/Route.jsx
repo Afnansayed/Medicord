@@ -13,6 +13,7 @@ import UpdateUserData from "../../Sheared/UpdateUserData/UpdateUserData";
 import ParticipantProfile from "../../Pages/ParticipantDashboard/ParticipantProfile/ParticipantProfile";
 import ManageCamp from "../../Pages/OrganizerDashboard/ManageCamp/ManageCamp";
 import UpdateCampsData from "../../Pages/OrganizerDashboard/UpdateCampsData/UpdateCampsData";
+import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
 
 const axiosSecure = UseAxiosSecure();
 export const router = createBrowserRouter([
@@ -34,13 +35,13 @@ export const router = createBrowserRouter([
                 element: <LogIn/>
             },{
                 path: '/detail/:id',
-                element: <Details/>,
+                element: <PrivateRoutes><Details/></PrivateRoutes>,
                 loader: ({params}) => axiosSecure.get(`/allCamps/${params.id}`)
             }
         ]
     },{
         path: '/dashboard',
-        element: <Dashboard/>,
+        element: <PrivateRoutes><Dashboard/></PrivateRoutes>,
         children:[
             {
                 path:'organizerProfile',

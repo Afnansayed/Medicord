@@ -3,21 +3,26 @@ import { useForm } from "react-hook-form"
 import { AuthContext } from "../../Providers/AuthProvider";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const LogIn = () => {
     const {logIn,google } = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
+    const location = useLocation();
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
       } = useForm()
+
       const onSubmit = (data) => {
-        console.log(data)
+       // console.log(data)
         logIn(data?.email,data?.password)
         .then(res => {
-            console.log(res.user);
+            if(res.user){
+                navigate(location?.state ? location.state : '/');
+            }
         })
         .catch(error => {
             console.error(error);
@@ -32,6 +37,7 @@ const LogIn = () => {
                 email:res?.user?.email,
                 image: res?.user?.photoURL,
             }
+            navigate(location?.state ? location.state : '/');
             axiosSecure.post('/users',userInfo)
             .then(res => {
                 if(res.data.insertedId){
@@ -42,6 +48,7 @@ const LogIn = () => {
                       showConfirmButton: false,
                       timer: 1500
                     }); 
+                   
                 }
             })
         })

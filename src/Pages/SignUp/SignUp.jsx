@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -11,6 +12,8 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const SignUp = () => {
     const {createUser,updateUser} = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
+    const navigate = useNavigate();
+    const location = useLocation();
    // console.log(createUser)
     const {
         register,
@@ -62,6 +65,9 @@ const SignUp = () => {
                                   timer: 1500
                                 }); 
                                 reset();
+                                setTimeout(() => {
+                                  navigate(location?.state ? location.state : '/');  
+                                },5000)
                             }
                         })
                     })
