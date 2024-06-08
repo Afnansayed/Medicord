@@ -24,6 +24,8 @@ const Dashboard = () => {
                         <NavLink to='/dashboard/organizerProfile'><li className="text-[#ffff]">Organizer Profile</li></NavLink>
                         {/* 2 */}
                         <NavLink to='/dashboard/addCamp'><li className="text-[#ffff]"> Add A Camp</li></NavLink>
+                        {/* 3 */}
+                        <NavLink to='/dashboard/manageCamps'><li className="text-[#ffff]">Manage Camps</li></NavLink>
                             </>: <>
                         {/* Participant Route */}
                         {/* 01 */}
