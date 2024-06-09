@@ -33,8 +33,10 @@ const Dashboard = () => {
                             </>: <>
                         {/* Participant Route */}
                         {/* 01 */}
-                        <NavLink to='/dashboard/participantProfile'><li className="text-[#ffff]">Participant Profile</li></NavLink>
+                        <NavLink to='/dashboard/analytics'><li className="text-[#ffff]">Analytics</li></NavLink>
                         {/* 02 */}
+                        <NavLink to='/dashboard/participantProfile'><li className="text-[#ffff]">Participant Profile</li></NavLink>
+                        {/* 03 */}
                         <NavLink to='/dashboard/registeredCamps'><li className="text-[#ffff]">Registered Camp</li></NavLink>
                             </>
                         }

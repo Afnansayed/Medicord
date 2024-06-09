@@ -1,23 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
-import { AuthContext } from "../../../Providers/AuthProvider";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import { GiConfirmed } from "react-icons/gi";
 import { MdCancel } from "react-icons/md";
 import Swal from "sweetalert2";
+import useParticipantRegistered from "../../../Hooks/useParticipantRegistered/useParticipantRegistered";
 
 
 const RegisteredCamps = () => {
-    const {user} = useContext(AuthContext);
+    const [myRegisteredCamp,refetch] = useParticipantRegistered();
     const axiosSecure = UseAxiosSecure();
-    const {data: myRegisteredCamp = [],refetch}= useQuery({
-         queryKey: ['myRegisteredCamp', user?.email],
-         queryFn: async () => {
-             const res = await axiosSecure.get(`/participantCamps?email=${user?.email}`)
-             return res.data;
-         }
-    })
-
     const handleMyRegisterDelete = id => {
         Swal.fire({
             title: "Are you sure?",
