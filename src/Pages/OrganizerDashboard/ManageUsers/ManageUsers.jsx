@@ -17,7 +17,6 @@ const ManageUsers = () => {
     })
 
     const handleUserStatus = id => {
-        console.log(id)
         axiosSecure.patch(`/users/admin/${id}`)
             .then(res => {
                 console.log(res.data)

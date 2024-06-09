@@ -19,6 +19,6 @@ const CommonProfile = ({data}) => {
     );
 };
 CommonProfile.propTypes={
-    data:PropTypes.array
+    data:PropTypes.object
 }
 export default CommonProfile;
