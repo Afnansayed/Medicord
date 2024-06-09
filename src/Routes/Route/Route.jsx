@@ -15,6 +15,8 @@ import ManageCamp from "../../Pages/OrganizerDashboard/ManageCamp/ManageCamp";
 import UpdateCampsData from "../../Pages/OrganizerDashboard/UpdateCampsData/UpdateCampsData";
 import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
 import ManageUsers from "../../Pages/OrganizerDashboard/ManageUsers/ManageUsers";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import ManageRegisteredCamps from "../../Pages/OrganizerDashboard/ManageRegisteredCamps/ManageRegisteredCamps";
 
 const axiosSecure = UseAxiosSecure();
 export const router = createBrowserRouter([
@@ -46,17 +48,20 @@ export const router = createBrowserRouter([
         children:[
             {
                 path:'organizerProfile',
-                element:<OrganizerHome/>
+                element:<AdminRoute><OrganizerHome/></AdminRoute>
             },{
                 path: 'addCamp',
-                element: <AddCamp/>
+                element: <AdminRoute><AddCamp/></AdminRoute>
             },{
                 path: 'manageCamps',
-                element:<ManageCamp></ManageCamp>
+                element: <AdminRoute><ManageCamp></ManageCamp></AdminRoute>
             },{
                 path: 'manageCamps/update/:id',
-                element: <UpdateCampsData></UpdateCampsData>,
+                element: <AdminRoute><UpdateCampsData></UpdateCampsData></AdminRoute>,
                 loader:  ({params}) => axiosSecure.get(`/allCamps/${params.id}`)
+            },{
+                path: 'manageRegisteredCamps',
+                element: <AdminRoute><ManageRegisteredCamps></ManageRegisteredCamps></AdminRoute>
             },{
                 path:'updateProfile',
                 element: <UpdateUserData></UpdateUserData>,
@@ -65,7 +70,7 @@ export const router = createBrowserRouter([
                 element: <ParticipantProfile></ParticipantProfile>
             },{
                 path: 'manageUsers',
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             }
         ]
     }

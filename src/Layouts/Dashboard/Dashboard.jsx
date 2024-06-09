@@ -1,8 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
+import useAdmin from "../../Hooks/useAdmin/useAdmin";
 
 const Dashboard = () => {
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
+    //console.log(isAdmin)
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -27,6 +29,7 @@ const Dashboard = () => {
                         {/* 3 */}
                         <NavLink to='/dashboard/manageCamps'><li className="text-[#ffff]">Manage Camps</li></NavLink>
                         <NavLink to='/dashboard/manageUsers'><li className="text-[#ffff]">Manage Users</li></NavLink>
+                        <NavLink to='/dashboard/manageRegisteredCamps'><li className="text-[#ffff]">Manage Register Camps</li></NavLink>
                             </>: <>
                         {/* Participant Route */}
                         {/* 01 */}
