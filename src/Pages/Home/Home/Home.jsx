@@ -1,4 +1,5 @@
 
+import Review from "../../ParticipantDashboard/Review/Review";
 import Banner from "../Banner/Banner";
 import PopularCamps from "../PopularCamps/PopularCamps";
 
@@ -8,6 +9,7 @@ const Home = () => {
         <div>
             <Banner/>
             <PopularCamps/>
+            <Review></Review>
         </div>
     );
 };
