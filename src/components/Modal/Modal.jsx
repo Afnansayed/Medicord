@@ -30,8 +30,8 @@ const Modal = ({ showModal, handleClose, handleJoinCamp, campData,readOnly }) =>
             emergencyContact: data.emergency,
             participantAge: data.age,
             gender: data.gender,
-            paymentStatus: "Paid",
-            confirmationStatus: "Confirmed"
+            paymentStatus: "Unpaid",
+            confirmationStatus: "pending"
         };
         handleJoinCamp(participantData);
     }

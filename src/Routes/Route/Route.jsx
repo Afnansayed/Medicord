@@ -17,6 +17,7 @@ import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
 import ManageUsers from "../../Pages/OrganizerDashboard/ManageUsers/ManageUsers";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import ManageRegisteredCamps from "../../Pages/OrganizerDashboard/ManageRegisteredCamps/ManageRegisteredCamps";
+import RegisteredCamps from "../../Pages/ParticipantDashboard/RegisteredCamps/RegisteredCamps";
 
 const axiosSecure = UseAxiosSecure();
 export const router = createBrowserRouter([
@@ -68,6 +69,9 @@ export const router = createBrowserRouter([
             },{
                 path:'participantProfile',
                 element: <ParticipantProfile></ParticipantProfile>
+            },{
+                path: 'registeredCamps',
+                element: <RegisteredCamps></RegisteredCamps>
             },{
                 path: 'manageUsers',
                 element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
