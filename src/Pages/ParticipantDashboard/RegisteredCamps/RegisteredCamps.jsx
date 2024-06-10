@@ -64,9 +64,7 @@ const RegisteredCamps = () => {
 
                                 </td>
                             <td className="py-2 px-4 border-b">
-                                {
-                                    myRegisterCamp?.paymentStatus === 'Unpaid' ? <p>{myRegisterCamp?.confirmationStatus}</p> : <p className="px-3 btn btn-sm  bg-[#181ca3] text-[#ffff]">{myRegisterCamp?.confirmationStatus}</p>
-                                }
+                                    <p className="text-lg">{myRegisterCamp?.confirmationStatus}</p> 
                             </td>
                             <td className="py-2 px-4 border-b">
                                 {
@@ -75,7 +73,7 @@ const RegisteredCamps = () => {
                             </td>
                             <td className="py-2 px-4 border-b">
                                 {
-                                     myRegisterCamp?.paymentStatus === 'Paid' ? <p className="px-3 btn btn-sm text-lg bg-[#181ca3]  text-[#ffff]">Feedback</p> : <p  >N/A</p>
+                                   myRegisterCamp?.confirmationStatus === "Confirmed" && myRegisterCamp?.paymentStatus === 'Paid' ? <p className="px-3 btn btn-sm text-lg bg-[#181ca3]  text-[#ffff]">Feedback</p> : <p  >N/A</p>
                                 }
                             </td>
                         </tr>)

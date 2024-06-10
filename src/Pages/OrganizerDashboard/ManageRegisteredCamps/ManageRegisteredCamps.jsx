@@ -66,7 +66,7 @@ const ManageRegisteredCamps = () => {
                                 <td className="py-2 px-4 border-b">{registerCamp?.paymentStatus} </td>
                                 <td className="py-2 px-4 border-b">
                                     {
-                                        registerCamp?.paymentStatus === 'Unpaid' ? <p>{registerCamp?.confirmationStatus}</p> : <p className="px-3 btn btn-sm  bg-[#181ca3] text-[#ffff]">{registerCamp?.confirmationStatus}</p>
+                                        registerCamp?.paymentStatus === 'Unpaid' ? <p>{registerCamp?.confirmationStatus}</p> : <p className="px-3 btn btn-sm  bg-[#181ca3] text-[#ffff]" disabled={registerCamp?.confirmationStatus === "Confirmed"}>Confirm</p>
                                     }
                                 </td>
                                 <td className="py-2 px-4 border-b">

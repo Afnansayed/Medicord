@@ -2,7 +2,8 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import { AuthContext } from "../../../Providers/AuthProvider";
-
+import  PropTypes from 'prop-types'
+import Swal from "sweetalert2";
 
 const CheckoutForm = ({campPrice}) => {
     const stripe = useStripe();
@@ -62,6 +63,30 @@ const CheckoutForm = ({campPrice}) => {
             console.log('Error from confirm intent',confirmError);
         }else{
             console.log('From payment intent',paymentIntent);
+            if(paymentIntent.status === 'succeeded'){
+                //console.log( 'Go for send data in data base')
+                axiosSecure.patch(`/participantCamps/${campPrice?._id}`,{paymentStatus: 'Paid'})
+                .then(res => {
+                    if(res.data.modifiedCount > 0){
+                        const paymentInfo = {
+                            name: user?.displayName,
+                            email: user?.email,
+                            campName: campPrice?.campName,
+                            campFees: totalPrice,
+                            trancejectionId: paymentIntent?.id
+                        }
+                        //post payment information in database
+                        axiosSecure.post('/histories',paymentInfo)
+                        .then(res => {
+                            console.log(res.data)
+                            if(res.data.insertedId){
+                                Swal.fire(`Payment successful with id: ${paymentIntent?.id}`); 
+                            }
+                        })
+                    }
+                })
+                
+            }
         }
     }
     return (
@@ -89,5 +114,7 @@ const CheckoutForm = ({campPrice}) => {
         </form>
     );
 };
-
+CheckoutForm.propTypes={
+    campPrice:PropTypes.object
+}
 export default CheckoutForm;
