@@ -14,14 +14,14 @@ const CheckoutForm = ({campPrice}) => {
     const {user} = useContext(AuthContext);
     
     const totalPrice = campPrice?.campFees;
-    console.log(totalPrice)
+    //console.log(totalPrice)
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', {price: totalPrice})
         .then(res => {
-            console.log(res.data.clientSecret)
+           // console.log(res.data.clientSecret)
             setSecret(res.data.clientSecret);
         })
-    },[])
+    },[totalPrice,axiosSecure])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -62,7 +62,7 @@ const CheckoutForm = ({campPrice}) => {
         if(confirmError){
             console.log('Error from confirm intent',confirmError);
         }else{
-            console.log('From payment intent',paymentIntent);
+            //console.log('From payment intent',paymentIntent);
             if(paymentIntent.status === 'succeeded'){
                 //console.log( 'Go for send data in data base')
                 axiosSecure.patch(`/participantCamps/${campPrice?._id}`,{paymentStatus: 'Paid'})
@@ -78,7 +78,7 @@ const CheckoutForm = ({campPrice}) => {
                         //post payment information in database
                         axiosSecure.post('/histories',paymentInfo)
                         .then(res => {
-                            console.log(res.data)
+                            //console.log(res.data)
                             if(res.data.insertedId){
                                 Swal.fire(`Payment successful with id: ${paymentIntent?.id}`); 
                             }

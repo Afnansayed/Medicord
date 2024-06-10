@@ -73,7 +73,7 @@ const RegisteredCamps = () => {
                             </td>
                             <td className="py-2 px-4 border-b">
                                 {
-                                   myRegisterCamp?.confirmationStatus === "Confirmed" && myRegisterCamp?.paymentStatus === 'Paid' ? <p className="px-3 btn btn-sm text-lg bg-[#181ca3]  text-[#ffff]">Feedback</p> : <p  >N/A</p>
+                                   myRegisterCamp?.confirmationStatus === "Confirmed" && myRegisterCamp?.paymentStatus === 'Paid' ? <Link to='/dashboard/feedback'><p className="px-3 btn btn-sm text-lg bg-[#181ca3]  text-[#ffff]">Feedback</p></Link>  : <p  >N/A</p>
                                 }
                             </td>
                         </tr>)

@@ -43,6 +43,20 @@ const ManageRegisteredCamps = () => {
             }
         });
     }
+
+    const handleStatus = id => {
+        
+        //
+        axiosSecure.patch(`/participantCamps/${id}`,{
+            confirmationStatus: "Confirmed"})
+            .then(res => {
+                if(res.data.modifiedCount > 0){
+                    refetch()
+                }
+               
+            })
+
+    }
     return (
         <div className="container mx-auto p-6 mt-12 md:mt-0">
             <div className="overflow-x-auto">
@@ -66,7 +80,9 @@ const ManageRegisteredCamps = () => {
                                 <td className="py-2 px-4 border-b">{registerCamp?.paymentStatus} </td>
                                 <td className="py-2 px-4 border-b">
                                     {
-                                        registerCamp?.paymentStatus === 'Unpaid' ? <p>{registerCamp?.confirmationStatus}</p> : <p className="px-3 btn btn-sm  bg-[#181ca3] text-[#ffff]" disabled={registerCamp?.confirmationStatus === "Confirmed"}>Confirm</p>
+                                        registerCamp?.paymentStatus === 'Unpaid' ? <p>{registerCamp?.confirmationStatus}</p> : <p className="px-3 btn btn-sm  bg-[#181ca3] text-[#ffff]"
+                                        onClick={() => handleStatus(registerCamp?._id)}
+                                        disabled={registerCamp?.confirmationStatus === "Confirmed"}>Confirm</p>
                                     }
                                 </td>
                                 <td className="py-2 px-4 border-b">
