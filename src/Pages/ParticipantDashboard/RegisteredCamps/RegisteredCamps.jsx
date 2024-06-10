@@ -3,6 +3,7 @@ import { GiConfirmed } from "react-icons/gi";
 import { MdCancel } from "react-icons/md";
 import Swal from "sweetalert2";
 import useParticipantRegistered from "../../../Hooks/useParticipantRegistered/useParticipantRegistered";
+import { Link } from "react-router-dom";
 
 
 const RegisteredCamps = () => {
@@ -58,7 +59,7 @@ const RegisteredCamps = () => {
                             <td className="py-2 px-4 border-b">{myRegisterCamp?.campFees} $</td>
                             <td className="py-2 px-4 border-b">
                                 {
-                                myRegisterCamp?.paymentStatus === 'Unpaid' ?<p className="px-3 btn btn-sm  bg-[#181ca3] text-[#ffff]">Pay</p> : <p>{myRegisterCamp?.paymentStatus}</p>
+                                myRegisterCamp?.paymentStatus === 'Unpaid' ? <Link to={`payment/${myRegisterCamp?._id}`}><p className="px-3 btn btn-sm  bg-[#181ca3] text-[#ffff]">Pay</p> </Link> : <p>{myRegisterCamp?.paymentStatus}</p>
                                 } 
 
                                 </td>

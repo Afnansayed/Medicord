@@ -20,6 +20,7 @@ import ManageRegisteredCamps from "../../Pages/OrganizerDashboard/ManageRegister
 import RegisteredCamps from "../../Pages/ParticipantDashboard/RegisteredCamps/RegisteredCamps";
 import Analytics from "../../Pages/ParticipantDashboard/Analytics/Analytics";
 import Review from "../../Pages/ParticipantDashboard/Review/Review";
+import Payment from "../../Pages/ParticipantDashboard/Payment/Payment";
 
 const axiosSecure = UseAxiosSecure();
 export const router = createBrowserRouter([
@@ -49,6 +50,7 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element: <PrivateRoutes><Dashboard/></PrivateRoutes>,
         children:[
+            //Organizer Routes
             {
                 path:'organizerProfile',
                 element:<AdminRoute><OrganizerHome/></AdminRoute>
@@ -66,9 +68,16 @@ export const router = createBrowserRouter([
                 path: 'manageRegisteredCamps',
                 element: <AdminRoute><ManageRegisteredCamps></ManageRegisteredCamps></AdminRoute>
             },{
+                path: 'manageUsers',
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+            },
+            // common route
+            {
                 path:'updateProfile',
                 element: <UpdateUserData></UpdateUserData>,
-            },{
+            },
+            //Participant route
+            {
                 path:'participantProfile',
                 element: <ParticipantProfile></ParticipantProfile>
             },{
@@ -81,8 +90,9 @@ export const router = createBrowserRouter([
                 path: 'feedback',
                 element: <Review></Review>
             },{
-                path: 'manageUsers',
-                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+                path: 'registeredCamps/payment/:id',
+                element: <Payment/>,
+                loader: ({params}) => axiosSecure.get(`/participantCamps/${params.id}`)
             }
         ]
     }
