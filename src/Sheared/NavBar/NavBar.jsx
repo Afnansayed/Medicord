@@ -44,7 +44,6 @@ const NavBar = () => {
                         {
                             navLink
                         }
-                        <li><a>Item 3</a></li>
                     </ul>
                 </div>
                 <img src={logo} className="w-24" alt="logo" />

@@ -2,11 +2,13 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 
 const Review = () => {
     const [rating, setRating] = useState(0);
     const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
     const axiosSecure = UseAxiosSecure();
     const userEmail = user?.email;
     const userName = user?.displayName;
@@ -26,11 +28,12 @@ const Review = () => {
        // console.log(res.data)
         if(res.data){
             Swal.fire("Thank for your valuable opinion");
+            navigate('/dashboard/registeredCamps')
         }
      })
    }
     return (
-        <div className=' rounded-lg p-5'>
+        <div className=' rounded-lg p-5 mt-12'>
             <div className="flex flex-col mx-auto max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-50 dark:text-gray-800 mt-5">
                 <div className="flex flex-col items-center w-full">
                     <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>

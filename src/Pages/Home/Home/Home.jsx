@@ -1,6 +1,5 @@
-
-import Review from "../../ParticipantDashboard/Review/Review";
 import Banner from "../Banner/Banner";
+import Feedback from "../Feedback/Feedback";
 import PopularCamps from "../PopularCamps/PopularCamps";
 
 
@@ -9,7 +8,7 @@ const Home = () => {
         <div>
             <Banner/>
             <PopularCamps/>
-            <Review></Review>
+            <Feedback/>
         </div>
     );
 };
