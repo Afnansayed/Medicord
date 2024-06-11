@@ -39,7 +39,7 @@ const UpdateCampsData = () => {
                     participantCount:parseInt(data?.participantCount),
                     image: res?.data?.data?.display_url
                 }
-               console.log(campInfo)
+               //console.log(campInfo)
                 //update
                 axiosSecure.put(`/allCamps/${previousData?._id}`,campInfo)
                 .then(res => {

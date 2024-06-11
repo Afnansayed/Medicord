@@ -18,7 +18,7 @@ const Modal = ({ showModal, handleClose, handleJoinCamp, campData,readOnly }) =>
     } = useForm()
 
     const onSubmit = (data) => {
-       console.log(data)
+      // console.log(data)
         const participantData = {
             campName: data.name,
             healthcareProfessional: data.healthcareProfessional,

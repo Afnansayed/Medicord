@@ -19,8 +19,10 @@ const ManageUsers = () => {
     const handleUserStatus = id => {
         axiosSecure.patch(`/users/admin/${id}`)
             .then(res => {
-                console.log(res.data)
-                refetch()
+               if(res.data.modifiedCount > 0){
+                  refetch()
+               }
+               
             })
     }
     const handleUserDelete = id => {

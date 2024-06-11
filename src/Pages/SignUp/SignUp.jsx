@@ -36,13 +36,13 @@ const SignUp = () => {
         axios.post(image_hosting_api, formData)
         .then(res => {
             if (res.data.success) {
-                console.log(res.data.data.display_url)
+               // console.log(res.data.data.display_url)
                 const image = res.data.data.display_url;
                 //create user
-                console.log(data?.email,data?.password)
+               // console.log(data?.email,data?.password)
                 createUser(data?.email,data.password)
                 .then(res => {
-                    console.log(res.user);
+                   // console.log(res.user);
                     // here I update user name and image as displayName,and photoURL.
                     updateUser(data?.name,image)
                     .then( () => {
@@ -52,7 +52,7 @@ const SignUp = () => {
                             email:data?.email,
                             image: image,
                         }
-                        console.log(userInfo)
+                        //console.log(userInfo)
                         //send the user info in the database
                         axiosSecure.post('/users',userInfo)
                         .then(res => {

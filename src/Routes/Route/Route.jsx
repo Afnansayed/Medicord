@@ -21,6 +21,7 @@ import RegisteredCamps from "../../Pages/ParticipantDashboard/RegisteredCamps/Re
 import Analytics from "../../Pages/ParticipantDashboard/Analytics/Analytics";
 import Review from "../../Pages/ParticipantDashboard/Review/Review";
 import Payment from "../../Pages/ParticipantDashboard/Payment/Payment";
+import PaymentHistory from "../../Pages/ParticipantDashboard/PaymentHistory/PaymentHistory";
 
 const axiosSecure = UseAxiosSecure();
 export const router = createBrowserRouter([
@@ -93,6 +94,9 @@ export const router = createBrowserRouter([
                 path: 'registeredCamps/payment/:id',
                 element: <Payment/>,
                 loader: ({params}) => axiosSecure.get(`/participantCamps/${params.id}`)
+            },{
+                path: 'history',
+                element:<PaymentHistory></PaymentHistory>
             }
         ]
     }

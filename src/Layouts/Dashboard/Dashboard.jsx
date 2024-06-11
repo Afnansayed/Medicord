@@ -1,6 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import useAdmin from "../../Hooks/useAdmin/useAdmin";
+import { RiChatHistoryFill } from "react-icons/ri";
+import { FaAddressBook } from "react-icons/fa6";
+import { CgProfile } from "react-icons/cg";
+import { IoIosHome, IoMdAnalytics } from "react-icons/io";
+import { MdEventAvailable } from "react-icons/md";
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
@@ -33,19 +38,21 @@ const Dashboard = () => {
                             </>: <>
                         {/* Participant Route */}
                         {/* 01 */}
-                        <NavLink to='/dashboard/analytics'><li className="text-[#ffff]">Analytics</li></NavLink>
+                        <li className="text-[#ffff]"><NavLink to='/dashboard/analytics'><IoMdAnalytics /> Analytics</NavLink></li>
                         {/* 02 */}
-                        <NavLink to='/dashboard/participantProfile'><li className="text-[#ffff]">Participant Profile</li></NavLink>
+                        <li className="text-[#ffff]"><NavLink to='/dashboard/participantProfile'><CgProfile /> Participant Profile</NavLink></li>
                         {/* 03 */}
-                        <NavLink to='/dashboard/registeredCamps'><li className="text-[#ffff]">Registered Camp</li></NavLink>
+                        <li className="text-[#ffff]"><NavLink to='/dashboard/registeredCamps'><FaAddressBook /> Registered Camp</NavLink></li>
+                        {/* 04 */}
+                        <li className="text-[#ffff]"><NavLink to='/dashboard/history'> <RiChatHistoryFill /> Payment History</NavLink></li>
                             </>
                         }
                         {/* user Route */}
                         {/*  */}
                         <div className="divider divider-info"></div>
                         {/* Sheared routes */}
-                            <NavLink to='/'><li className="text-[#ffff]">Home</li></NavLink>
-                            <NavLink to='/avail'><li className="text-[#ffff]">Available Page</li></NavLink>
+                        <li className="text-[#ffff]"><NavLink to='/'><IoIosHome /> Home</NavLink></li>
+                        <li className="text-[#ffff]"><NavLink to='/avail'><MdEventAvailable />Available Page</NavLink></li>
                     </ul>
 
                 </div>

@@ -31,7 +31,7 @@ const LogIn = () => {
     const handleGoogle = () => {
         google()
         .then(res => {
-            console.log(res.user);
+            //console.log(res.user);
             const userInfo ={
                 name:res?.user?.displayName,
                 email:res?.user?.email,

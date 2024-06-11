@@ -21,17 +21,17 @@ const Details = () => {
 
     const handleJoinCamp = (participantData) => {
         // Handle the join camp logic here
-        console.log("Participant Data:", participantData);
+        //console.log("Participant Data:", participantData);
         // send data in dataBase
         axiosSecure.post('/participantCamps', participantData)
             .then(res => {
-                console.log(res.data)
+               // console.log(res.data)
                 if (res.data.insertedId) {
                     const newCount = { participantCount: parseInt(campData.participantCount) + 1, }
-                    console.log(newCount)
+                   // console.log(newCount)
                     axiosSecure.patch(`/allCamps/${_id}`,newCount)
                     .then(res => {
-                        console.log(res.data);
+                       // console.log(res.data);
                         if(res.data.modifiedCount > 0){
                             Swal.fire({
                                 position: "top-end",

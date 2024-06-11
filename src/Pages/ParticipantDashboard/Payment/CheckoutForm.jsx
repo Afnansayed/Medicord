@@ -45,7 +45,7 @@ const CheckoutForm = ({campPrice}) => {
              console.log('Error payment ' , error);
              setError(error.message);
         }else{
-            console.log('Payment method', paymentMethod);
+           // console.log('Payment method', paymentMethod);
             setError('')
         }
 
@@ -73,7 +73,8 @@ const CheckoutForm = ({campPrice}) => {
                             email: user?.email,
                             campName: campPrice?.campName,
                             campFees: totalPrice,
-                            trancejectionId: paymentIntent?.id
+                            trancejectionId: paymentIntent?.id,
+                            paymentStatus: 'Paid'
                         }
                         //post payment information in database
                         axiosSecure.post('/histories',paymentInfo)
