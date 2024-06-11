@@ -5,6 +5,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import banner from '../../assets/allCampBanner.jpg'
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Footer from "../../components/Footer/Footer";
 const AvailableCamps = () => {
     const axiosSecure = UseAxiosSecure();
     const [search, setSearch] = useState('');
@@ -89,6 +90,9 @@ const AvailableCamps = () => {
                         </div>
                     </div>
                 </section>
+            </div>
+            <div>
+                <Footer></Footer>
             </div>
         </div>
     );

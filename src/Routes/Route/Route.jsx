@@ -22,12 +22,14 @@ import Analytics from "../../Pages/ParticipantDashboard/Analytics/Analytics";
 import Review from "../../Pages/ParticipantDashboard/Review/Review";
 import Payment from "../../Pages/ParticipantDashboard/Payment/Payment";
 import PaymentHistory from "../../Pages/ParticipantDashboard/PaymentHistory/PaymentHistory";
+import Error from "../../components/Error/Error";
 
 const axiosSecure = UseAxiosSecure();
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main/>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path:'/',
