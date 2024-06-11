@@ -4,6 +4,7 @@ import { MdCancel } from "react-icons/md";
 import Swal from "sweetalert2";
 import useParticipantRegistered from "../../../Hooks/useParticipantRegistered/useParticipantRegistered";
 import { Link } from "react-router-dom";
+import DynamicTittle from "../../../Sheared/DynamicTittle/DynamicTittle";
 
 
 const RegisteredCamps = () => {
@@ -38,8 +39,9 @@ const RegisteredCamps = () => {
     }
     return (
         <div className="container mx-auto p-6 mt-12 md:mt-0">
+            <DynamicTittle heading={'Manage Registered Camps'} subHeading={'View and Manage Your Registered Camps - Monitor Payment Status, Confirmation, and Provide Feedback'}></DynamicTittle>
         <div className="overflow-x-auto">
-            <table className="min-w-full bg-white border border-gray-200">
+            <table className="min-w-full bg-white border border-gray-200 text-center">
                 <thead className="bg-[#181ca3] text-[#ffff]">
                     <tr>
                         <th className="py-2 px-4 border-b">Participant Name</th>

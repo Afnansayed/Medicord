@@ -3,6 +3,7 @@ import UseAxiosSecure from "../../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import { MdOutlineDelete } from "react-icons/md";
 import { FaUsers } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import DynamicTittle from "../../../Sheared/DynamicTittle/DynamicTittle";
 
 
 const ManageUsers = () => {
@@ -55,8 +56,9 @@ const ManageUsers = () => {
     return (
 
         <div className="container mx-auto p-6 mt-12 md:mt-0">
+            <DynamicTittle heading={'Manage Users'} subHeading={'Make sure first before make admin'}></DynamicTittle>
             <div className="overflow-x-auto">
-                <table className="min-w-full bg-white border border-gray-200">
+                <table className="min-w-full text-center bg-white border border-gray-200">
                     <thead className="bg-[#181ca3] text-[#ffff]">
                         <tr>
                             <th className="py-2 px-4 border-b">#</th>

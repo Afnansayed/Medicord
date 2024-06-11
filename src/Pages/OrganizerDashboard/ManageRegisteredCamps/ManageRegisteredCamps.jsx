@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { useLoaderData } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ImNext2, ImPrevious2 } from "react-icons/im";
+import DynamicTittle from "../../../Sheared/DynamicTittle/DynamicTittle";
 
 
 const ManageRegisteredCamps = () => {
@@ -94,8 +95,11 @@ const ManageRegisteredCamps = () => {
     }
     return (
         <div className="container mx-auto p-6 mt-12 md:mt-0">
+            <DynamicTittle heading={'Camp Registrations Management'}
+            subHeading={'Organize and Control Your Camp Participant Data'}
+            ></DynamicTittle>
             <div className="overflow-x-auto">
-                <table className="min-w-full bg-white border border-gray-200">
+                <table className="min-w-full bg-white border border-gray-200 text-center">
                     <thead className="bg-[#181ca3] text-[#ffff]">
                         <tr>
                             <th className="py-2 px-4 border-b">Participant Name</th>

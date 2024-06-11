@@ -5,6 +5,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import { MdOutlineDelete, MdOutlineModeEditOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import DynamicTittle from "../../../Sheared/DynamicTittle/DynamicTittle";
 
 
 const ManageCamp = () => {
@@ -50,8 +51,9 @@ const ManageCamp = () => {
     // console.log(addedOrganizer)
     return (
         <div className="container mx-auto p-6 mt-12 md:mt-0">
+            <DynamicTittle heading={'Camps Administration'} subHeading={'Maintain Control Over Your Camps - Update Information and Manage Events with Ease.'}></DynamicTittle>
             <div className="overflow-x-auto">
-                <table className="min-w-full bg-white border border-gray-200">
+                <table className="min-w-full bg-white border border-gray-200 text-center">
                     <thead className="bg-[#181ca3] text-[#ffff]">
                         <tr>
                             <th className="py-2 px-4 border-b">Camp Name</th>

@@ -1,11 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import useAdmin from "../../Hooks/useAdmin/useAdmin";
-import { RiChatHistoryFill } from "react-icons/ri";
+import { RiAdminFill, RiChatHistoryFill } from "react-icons/ri";
 import { FaAddressBook } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import { IoIosHome, IoMdAnalytics } from "react-icons/io";
-import { MdEventAvailable } from "react-icons/md";
+import { MdAddCard, MdAdminPanelSettings, MdEventAvailable } from "react-icons/md";
+import { GrUserAdmin } from "react-icons/gr";
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
@@ -28,13 +29,13 @@ const Dashboard = () => {
                             isAdmin ? <>
                         {/* Organizers  route */}
                         {/* 01 */}
-                        <NavLink to='/dashboard/organizerProfile'><li className="text-[#ffff]">Organizer Profile</li></NavLink>
+                        <li className="text-[#ffff]"><NavLink to='/dashboard/organizerProfile'><CgProfile />Organizer Profile</NavLink></li>
                         {/* 2 */}
-                        <NavLink to='/dashboard/addCamp'><li className="text-[#ffff]"> Add A Camp</li></NavLink>
+                        <li className="text-[#ffff]"><NavLink to='/dashboard/addCamp'><MdAddCard /> Add A Camp</NavLink></li>
                         {/* 3 */}
-                        <NavLink to='/dashboard/manageCamps'><li className="text-[#ffff]">Manage Camps</li></NavLink>
-                        <NavLink to='/dashboard/manageUsers'><li className="text-[#ffff]">Manage Users</li></NavLink>
-                        <NavLink to='/dashboard/manageRegisteredCamps'><li className="text-[#ffff]">Manage Register Camps</li></NavLink>
+                        <li className="text-[#ffff]"><NavLink to='/dashboard/manageCamps'><MdAdminPanelSettings />Manage Camps</NavLink></li>
+                        <li className="text-[#ffff]"><NavLink to='/dashboard/manageUsers'><GrUserAdmin />Manage Users</NavLink></li>
+                        <li className="text-[#ffff]"><NavLink to='/dashboard/manageRegisteredCamps'><RiAdminFill />Manage Register Camps</NavLink></li>
                             </>: <>
                         {/* Participant Route */}
                         {/* 01 */}
