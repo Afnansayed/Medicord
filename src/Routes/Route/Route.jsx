@@ -67,7 +67,8 @@ export const router = createBrowserRouter([
                 loader:  ({params}) => axiosSecure.get(`/allCamps/${params.id}`)
             },{
                 path: 'manageRegisteredCamps',
-                element: <AdminRoute><ManageRegisteredCamps></ManageRegisteredCamps></AdminRoute>
+                element: <AdminRoute><ManageRegisteredCamps></ManageRegisteredCamps></AdminRoute>,
+                loader: () => axiosSecure.get('/participantCampsCount')
             },{
                 path: 'manageUsers',
                 element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>

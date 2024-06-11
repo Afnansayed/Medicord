@@ -34,7 +34,7 @@ const Camp = ({ camp }) => {
                         <div className='flex mt-3 gap-6'>
                             <Link to={`/detail/${_id}`}><p className='px-3 bg-[#181ED5] text-[#ffff] btn btn-sm'>View Details</p></Link>
                             
-                            <p className='px-3 bg-[#181ED5] text-[#ffff] btn btn-sm'>Available Camp</p>
+                            <Link to='/avail'><p className='px-3 bg-[#181ED5] text-[#ffff] btn btn-sm'>Available Camp</p></Link>
                         </div>
                     </div>
                 </div>
