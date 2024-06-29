@@ -10,7 +10,7 @@ import axios from "axios";
 const Banner = () => {
     const [success, setSuccess] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:5000/successStory')
+        axios.get('https://medicored-server.vercel.app/successStory')
             .then(res => {
                // console.log(res.data)
                 setSuccess(res.data);

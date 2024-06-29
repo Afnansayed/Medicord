@@ -18,7 +18,7 @@ const ManageRegisteredCamps = () => {
     const numberOfPages = Math.ceil(count / itemsPerPage);
     const pages = [...Array(numberOfPages).keys()];
 
-    console.log(count,numberOfPages,pages)
+   // console.log(count,numberOfPages,pages)
 
     
     const { data: registeredCamps = [], refetch } = useQuery({

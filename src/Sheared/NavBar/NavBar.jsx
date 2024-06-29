@@ -2,10 +2,13 @@ import { NavLink } from "react-router-dom";
 import logo from '../../../src/assets/cover.png'
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import useAdmin from "../../Hooks/useAdmin/useAdmin";
 
 
 const NavBar = () => {
     const { user ,logOut} = useContext(AuthContext);
+    const [isAdmin] = useAdmin();
+    console.log(isAdmin)
     const navLink = <>
         <NavLink className={({ isActive }) => isActive ? 'font-bold text-[#396cf0] mr-3 ' : 'text-[#333333] mr-2 font-semibold'} to='/'><li>Home</li></NavLink>
         {/* 2 */}
@@ -29,7 +32,14 @@ const NavBar = () => {
     }
     const navForDashboard = <>
         {/* 1 */}
-        <NavLink className={({ isActive }) => isActive ? 'font-bold text-[#396cf0] mr-3 ' : 'text-[#333333] font-semibold  mr-2'} to='/dashboard'><li>DashBoard</li></NavLink>
+        {
+            isAdmin && <NavLink className={({ isActive }) => isActive ? 'font-bold text-[#396cf0] mr-3 ' : 'text-[#333333] font-semibold  mr-2'} to='/dashboard/manageRegisteredCamps'><li>DashBoard</li></NavLink>
+        }
+        {/* 2 */}
+        {
+            !isAdmin && <NavLink className={({ isActive }) => isActive ? 'font-bold text-[#396cf0] mr-3 ' : 'text-[#333333] font-semibold  mr-2'} to='/dashboard/registeredCamps'><li>DashBoard</li></NavLink>
+        }
+        
          {/* 2 */}
         <li onClick={handleLogOut} className="btn px-5 py-2 w-full bg-[#181dc6]  text-[#ffff]">Log Out</li>
 

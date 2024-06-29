@@ -9,7 +9,7 @@ const firebaseLogout = () => {
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://medicored-server.vercel.app',
 })
 
 const UseAxiosSecure = () => {
