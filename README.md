@@ -1,17 +1,17 @@
 # Medical Camp Management System (MCMS)
 
 ## Overview
-- **Concept**: MCMS is a MERN stack platform designed to simplify the organization and participation in medical camps.
-- **Problem Solved**: It streamlines camp registration, management, and participant feedback, enhancing the overall coordination of medical camps.
+- **Concept**: MCMS is a MERN stack platform for organizing and participating in medical camps.
+- **Problem Solved**: Streamlines camp registration, management, and participant feedback, enhancing overall coordination.
 
 ## Key Features
 - **Comprehensive Camp Management**: 
-  - Participants register for camps, view details, and manage registrations.
-  - Organizers manage registrations, view payment statuses, and update confirmation statuses.
+  - Participants register, view details, and manage registrations.
+  - Organizers manage registrations, payment statuses, and confirmations.
 - **Analytics and Feedback**: 
-  - Participants view analytics of registered camps and provide feedback.
+  - Participants view camp analytics and provide feedback.
   - Feedback and ratings are collected and displayed on the home page.
-- **Secure Authentication and Responsive Design**: 
+- **Secure and Responsive Design**: 
   - Uses JWT for secure routes.
   - Fully responsive for mobile, tablet, and desktop.
 
@@ -29,10 +29,11 @@
    - Frontend: `cd client && npm install`
    - Backend: `cd server && npm install`
 3. **Set Up Environment Variables**:
-   - Create a `.env` file for Firebase config keys and MongoDB credentials.
+   - Create a `.env` file for Firebase and MongoDB credentials.
 4. **Run the Application**:
-   - Frontend: `npm start` in the `client` directory
-   - Backend: `npm start` in the `server` directory
+   - Frontend: `npm start` in `client` directory
+   - Backend: `npm start` in `server` directory
+
 
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
